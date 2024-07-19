@@ -1,21 +1,17 @@
-// In App.js in a new project
+import './gesture-handler';
+import 'react-native-gesture-handler'
+import { Provider } from 'react-redux'
+import Store from "./src/redux/configureStore"
 
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-// screens
-import HomeScreen from './src/screens/Home';
-
-const Stack = createNativeStackNavigator();
+import Navigations from './src/navigations';
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={Store}>
+     <Navigations/>
+    </Provider>
+  
   );
 }
 
